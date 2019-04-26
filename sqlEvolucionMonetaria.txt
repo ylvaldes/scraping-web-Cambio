@@ -1,0 +1,47 @@
+select c.fecha, cc.nombre, cc.descripcion, c.valor, mv.moneda, op.operacion, m.moneda_nombre  from operaciones c
+join moneda m on c.id_moneda=m.Id_moneda
+join moneda mv on c.id_moneda_valor=mv.Id_moneda
+join casaCambios cc on c.id_casaCambios=cc.id_casaCambio
+join tipoOperacion op on c.id_tipoOperacion=op.id_tipoOperacion
+order by op.id_tipoOperacion, c.valor
+
+--prueba
+select datetime('now')
+
+
+--BROU
+insert into operaciones (id_casaCambios,id_moneda,valor,id_tipoOperacion)
+VALUES
+(1,1,33.82,1),(1,1,35.22,2),                                         --Dolar
+(1,2,34.16,1),(1,2,34.88,2),                                         --Dolar eBrou
+(1,3,36.79,1),(1,3,40.38,2),                                         --Euro
+(1,4,0.5,1),(1,4,1.1,2),                                             --Pesor Argentino
+(1,5,8.06,1),(1,5,9.36,2),                                           --Real
+(1,6,42.58,1),(1,6,47.6,2),                                          --Libra Esterlina
+(1,7,32.51,1),(1,7,35.09,2),                                         --Franco Suizo
+(1,8,0.296,1),(1,8,0.319,2),                                         --Yen
+(1,9,0.00529,1),(1,9,0.00574,2),                                      --Guarani
+(1,10,42917.88440,1),(1,10,45023.26860,2),                            --Onza Troy de Oro
+(1,11,4.15580,1)                                                      --Unidad indexada
+
+--Fortes
+insert into operaciones (id_casaCambios,id_moneda,valor,id_tipoOperacion)
+VALUES
+(5,1,34.30,1),(1,1,34.75,2),                                         --Dolar
+(5,3,38.21,1),(1,3,39.79,2),                                         --Euro
+(5,4,0.82,1),(1,4,0.85,2),                                           --Pesor Argentino
+(5,5,8.79,1),(1,5,9.14,2)                                           --Real
+
+--- Prex
+insert into operaciones (id_casaCambios,id_moneda,valor,id_tipoOperacion)
+VALUES
+(4,1,34.35,1),(1,1,34.70,2),                                         --Dolar
+
+-- Cambio 18
+insert into operaciones (id_casaCambios,id_moneda,valor,id_tipoOperacion)
+VALUES
+(2,1,34.60,2),                                         --Dolar Combio 18 Web
+(2,1,33.70,1),(1,1,35.30,2),                                         --Dolar
+(2,3,37.50,1),(1,3,4050,2),                                         --Euro
+(2,4,0.55,1),(1,4,1.15,2),                                           --Pesor Argentino
+(2,5,8.40,1),(1,5,9.40,2)                                           --Real
